@@ -1,7 +1,7 @@
 #!/bin/bash
 
-apikey='your apikey'
-secretkey='your secretkey'
+apikey=`cat ~/.cloudmonkey/config | grep apikey | head -1 | awk '{print $3}'`
+secretkey=`cat ~/.cloudmonkey/config | grep secretkey | head -1 | awk '{print $3}'`
 
 cloudmonkey set apikey $apikey
 cloudmonkey set secretkey $secretkey
