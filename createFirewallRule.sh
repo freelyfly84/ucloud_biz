@@ -8,7 +8,7 @@ cloudmonkey set secretkey $secretkey
 cloudmonkey set display csv
 
 IFS=,
-sed 1d $1 | while read cidrlist protocol start end ip
+sed 1d $1 | while read start end cidrlist protocol ip
  do
         ipid=`python checkIpid.py $apikey $secretkey $ip`
         cloudmonkey createFirewallRule ipaddressid=$ipid protocol=$protocol cidrlist=$cidrlist startport=$start endport=$end
